@@ -1,0 +1,13 @@
+{
+    "get": {
+        "statusCode": 200,
+        "body": {
+            "someNumbers": [
+                1,
+                2,
+                3,
+                4
+            ]
+        }
+    }
+}

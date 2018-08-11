@@ -39,4 +39,4 @@ testem.log
 Thumbs.db
 
 # Project Specific
-/api
+static_json/*

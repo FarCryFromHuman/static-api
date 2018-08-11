@@ -1,8 +1,0 @@
-{
-    "get": {
-        "statusCode": 200,
-        "body": {
-            "message": "this is the fallback for api/demo/_/_"
-        }
-    }
-}

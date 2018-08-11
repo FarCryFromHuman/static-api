@@ -9,6 +9,7 @@
   "author": "Austin D Hill",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.16.3"
+    "express": "^4.16.3",
+    "json-try-parse": "^1.0.0"
   }
 }
