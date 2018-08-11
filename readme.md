@@ -1,3 +1,9 @@
+# Getting started
+* Fork/clone the repo.
+* Have Node and NPM installed.
+* Run `npm install` and `npm run start` in the root directory.
+* You should be able to hit the API at `localhost:3000`.
+
 # How static data works
 * For any given request, the request route is mapped to the hierarchy under the static-json folder.
 * Routes begin with `'/'`, so `'/{myResource}/{myIdenifier}'` will map directly to `'static-json/{myResource}/{myIdentifier}.json'`.
