@@ -10,7 +10,7 @@
   * And on, ending with the most desperate attempt to match, `'static-json/_/_/_/_.json'`
   * The tokenization is progressive, so any given token may be a fallback without breaking the hierarchy.
 * Once a valid JSON file is found for the request route, the server looks for a valid entry matching the request method
-* Valid JSON response files should match this format:
+* Valid JSON response files should match this format:  
 `{
      "method": {
          "statusCode": httpStatusCode,
