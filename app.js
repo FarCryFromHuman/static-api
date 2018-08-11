@@ -1,9 +1,9 @@
-import { existsSync, readFileSync } from 'fs';
-import express from 'express';
+const fs = require('fs');
+const express = require('express');
 var app = express();
 
 const handleRequest = (req, res) => {
-    let verb = req.method.toLowerCase();
+    let method = req.method.toLowerCase();
     let safePath = getActualPath(req.path.slice(1))
     if (!safePath) {
         res.status(404).send('Response for ' + req.path + ' is not present, and no fallbacks were available.');
@@ -11,12 +11,12 @@ const handleRequest = (req, res) => {
     }
 
     let json = getStaticData(safePath);
-    if (!checkStaticData(json, verb)) {
-        res.status(404).send('Response file ' + safePath + ' does not have a response for ' + verb);
+    if (!checkStaticData(json, method)) {
+        res.status(404).send('Response file ' + safePath + ' does not have a response for ' + method);
         return;
     }
 
-    res.status(json[verb].statusCode).json(json[verb].response);
+    res.status(json[method].statusCode).json(json[method].body);
 }
 
 const getActualPath = route => {
@@ -34,26 +34,26 @@ const getActualPath = route => {
 const getActualFolder = (path, token) =>
     !path || path.some(p => !p)
         ? undefined
-        : existsSync([...path, token].join('/'))
+        : fs.existsSync([...path, token].join('/'))
             ? [...path, token]
-            : existsSync([...path, '_'].join('/'))
+            : fs.existsSync([...path, '_'].join('/'))
                 ? [...path, '_']
                 : undefined;
 
 const getActualFile = (path, file) =>
-    existsSync([...path, file + '.json'].join('/'))
+    fs.existsSync([...path, file + '.json'].join('/'))
         ? file + '.json'
-        : existsSync([...path, '_.json'].join('/'))
+        : fs.existsSync([...path, '_.json'].join('/'))
             ? '_.json'
             : undefined;
 
 const checkStaticData = (json, verb) =>
     json.hasOwnProperty(verb)
     && json[verb].hasOwnProperty('statusCode')
-    && json[verb].hasOwnProperty('response');
+    && json[verb].hasOwnProperty('body');
 
 const getStaticData = path =>
-    JSON.parse(readFileSync(path));
+    JSON.parse(fs.readFileSync(path));
 
 app.all('*', handleRequest);
 var server = app.listen(3000, () =>

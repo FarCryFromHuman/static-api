@@ -1,0 +1,6 @@
+{
+    "method": {
+        "statusCode": "string",
+        "body": {}
+    }
+}
