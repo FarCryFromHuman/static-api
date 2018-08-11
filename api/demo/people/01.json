@@ -1,0 +1,10 @@
+{
+    "get": {
+        "statusCode": 200,
+        "response": {
+            "id": "01",
+            "firstName": "Austin",
+            "lastName": "Hill"
+        }
+    }
+}

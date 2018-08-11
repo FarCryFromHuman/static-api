@@ -1,0 +1,16 @@
+{
+  "name": "static-api",
+  "version": "1.0.0",
+  "description": "Serves static json files to any route",
+  "main": "index.js",
+  "scripts": {
+    "test": "node app.js",
+    "start": "node app.js"
+  },
+  "author": "Austin D Hill",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3"
+  }
+}
